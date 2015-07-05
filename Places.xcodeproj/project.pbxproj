@@ -15,6 +15,8 @@
 		75A5D0E91B4130B50066E749 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A5D0E81B4130B50066E749 /* Images.xcassets */; };
 		75A5D0EC1B4130B50066E749 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A5D0EA1B4130B50066E749 /* LaunchScreen.xib */; };
 		75A5D0F81B4130B50066E749 /* PlacesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A5D0F71B4130B50066E749 /* PlacesTests.m */; };
+		75A5D1061B4134BC0066E749 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A5D1051B4134BC0066E749 /* Profile.m */; };
+		75A5D1091B41727C0066E749 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A5D1081B41727C0066E749 /* Settings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,10 @@
 		75A5D0F11B4130B50066E749 /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A5D0F61B4130B50066E749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A5D0F71B4130B50066E749 /* PlacesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlacesTests.m; sourceTree = "<group>"; };
+		75A5D1041B4134BC0066E749 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		75A5D1051B4134BC0066E749 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		75A5D1071B41727C0066E749 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		75A5D1081B41727C0066E749 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +91,9 @@
 			children = (
 				75A5D0DC1B4130B50066E749 /* AppDelegate.h */,
 				75A5D0DD1B4130B50066E749 /* AppDelegate.m */,
-				75A5D0E21B4130B50066E749 /* ViewController.h */,
-				75A5D0E31B4130B50066E749 /* ViewController.m */,
-				75A5D0E51B4130B50066E749 /* Main.storyboard */,
-				75A5D0E81B4130B50066E749 /* Images.xcassets */,
-				75A5D0EA1B4130B50066E749 /* LaunchScreen.xib */,
-				75A5D0DF1B4130B50066E749 /* Places.xcdatamodeld */,
+				75A5D1011B4131CD0066E749 /* Model */,
+				75A5D1021B4131D50066E749 /* View */,
+				75A5D1031B4131DB0066E749 /* Controller */,
 				75A5D0D81B4130B50066E749 /* Supporting Files */,
 			);
 			path = Places;
@@ -99,6 +102,7 @@
 		75A5D0D81B4130B50066E749 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				75A5D0E81B4130B50066E749 /* Images.xcassets */,
 				75A5D0D91B4130B50066E749 /* Info.plist */,
 				75A5D0DA1B4130B50066E749 /* main.m */,
 			);
@@ -120,6 +124,36 @@
 				75A5D0F61B4130B50066E749 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75A5D1011B4131CD0066E749 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75A5D0DF1B4130B50066E749 /* Places.xcdatamodeld */,
+				75A5D1041B4134BC0066E749 /* Profile.h */,
+				75A5D1051B4134BC0066E749 /* Profile.m */,
+				75A5D1071B41727C0066E749 /* Settings.h */,
+				75A5D1081B41727C0066E749 /* Settings.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		75A5D1021B4131D50066E749 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75A5D0E51B4130B50066E749 /* Main.storyboard */,
+				75A5D0EA1B4130B50066E749 /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		75A5D1031B4131DB0066E749 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				75A5D0E21B4130B50066E749 /* ViewController.h */,
+				75A5D0E31B4130B50066E749 /* ViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +257,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A5D0DE1B4130B50066E749 /* AppDelegate.m in Sources */,
+				75A5D1061B4134BC0066E749 /* Profile.m in Sources */,
+				75A5D1091B41727C0066E749 /* Settings.m in Sources */,
 				75A5D0DB1B4130B50066E749 /* main.m in Sources */,
 				75A5D0E41B4130B50066E749 /* ViewController.m in Sources */,
 				75A5D0E11B4130B50066E749 /* Places.xcdatamodeld in Sources */,
