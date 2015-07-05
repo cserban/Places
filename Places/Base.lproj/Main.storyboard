@@ -149,6 +149,7 @@
                                     </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="hyR-pg-eYb" secondAttribute="trailing" id="4hs-t4-k5H"/>
                                     <constraint firstItem="tL4-Us-DUj" firstAttribute="top" secondItem="xCS-AV-syF" secondAttribute="bottom" constant="42" id="50F-UY-qFn"/>
