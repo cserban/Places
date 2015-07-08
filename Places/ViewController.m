@@ -50,7 +50,7 @@
     UIScreenEdgePanGestureRecognizer *panLeft = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(pangGesture:)];
     [panLeft setEdges:UIRectEdgeLeft];
     [self.view addGestureRecognizer:panLeft];
-
+    
 }
 
 
@@ -63,7 +63,6 @@
             [_settingsView setHidden:YES];
             [_profileButton setSelected:YES];
             [_settingsButton setSelected:NO];
-            _centerXToButton.constant = 0;
         }
         else  if ([sender isEqual:_settingsButton])
         {
@@ -71,11 +70,8 @@
             [_settingsView setHidden:NO];
             [_profileButton setSelected:NO];
             [_settingsButton setSelected:YES];
-            _centerXToButton.constant = _settingsButton.frame.size.width;
         }
-        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-            [self.view layoutIfNeeded];
-        } completion:nil];
+        [self updateIndicationViewWithDuration:0.5];
     }
 }
 - (IBAction)datePickerChange:(id)sender {
@@ -86,11 +82,11 @@
 {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                              delegate:self
-                                                    cancelButtonTitle:@"Cancel"
+                                                    cancelButtonTitle:@"cancel"
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Take Photo", @"Select Photo", nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    [actionSheet setTag:1];
+    
+    
     [actionSheet showInView:self.view];
 }
 
@@ -177,6 +173,11 @@ bool isKeyboardUp;
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
+    [self updateIndicationViewWithDuration:0.0];
+}
+
+-(void)updateIndicationViewWithDuration:(CGFloat)duration
+{
     if ([_profileButton isSelected])
     {
         _centerXToButton.constant = 0;
@@ -185,7 +186,9 @@ bool isKeyboardUp;
     {
         _centerXToButton.constant = _settingsButton.frame.size.width;
     }
-            [self.view layoutIfNeeded];
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [self.view layoutIfNeeded];
+    } completion:nil];
 }
 
 #pragma mark -
@@ -193,24 +196,21 @@ bool isKeyboardUp;
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (actionSheet.tag == 1)
+    switch(buttonIndex)
     {
-        NSInteger i = buttonIndex;
-        switch(i)
+        case 0:
         {
-            case 0:
-            {
-                [self uploadPhotoFrom:UIImagePickerControllerSourceTypeCamera];
-            }
-                break;
-            case 1:
-            {
-                [self uploadPhotoFrom:UIImagePickerControllerSourceTypePhotoLibrary];
-            }
-            default:
-                break;
+            [self uploadPhotoFrom:UIImagePickerControllerSourceTypeCamera];
         }
+            break;
+        case 1:
+        {
+            [self uploadPhotoFrom:UIImagePickerControllerSourceTypePhotoLibrary];
+        }
+        default:
+            break;
     }
+    
 }
 
 - (void)uploadPhotoFrom:(UIImagePickerControllerSourceType)sourceType
@@ -221,8 +221,8 @@ bool isKeyboardUp;
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
         imagePicker.delegate = self;
         imagePicker.sourceType = sourceType;
-        imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
-        imagePicker.allowsEditing = NO;
+        //imagePicker.mediaTypes = @[(NSString *) kUTTypeImage];
+        //imagePicker.allowsEditing = NO;
         [self presentViewController:imagePicker
                            animated:YES completion:nil];
         
