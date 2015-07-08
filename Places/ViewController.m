@@ -171,7 +171,7 @@ bool isKeyboardUp;
 #pragma mark -
 #pragma mark WillRotate
 
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+-(void) :(UIInterfaceOrientation)fromInterfaceOrientation
 {
     [self updateIndicationViewWithDuration:0.0];
 }
