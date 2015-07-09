@@ -18,6 +18,9 @@
 		75A5D1061B4134BC0066E749 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A5D1051B4134BC0066E749 /* Profile.m */; };
 		75A5D1091B41727C0066E749 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A5D1081B41727C0066E749 /* Settings.m */; };
 		973D6D03DD7877088A5CA0BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F89653C468432220E77E1F85 /* libPods.a */; };
+		BB2C8D771B4EFA8300C464A8 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2C8D761B4EFA8300C464A8 /* DetailsViewController.m */; };
+		BB2C8D791B4EFAED00C464A8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB2C8D781B4EFAED00C464A8 /* MapKit.framework */; };
+		BB2C8D7C1B4EFDDE00C464A8 /* PositionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2C8D7B1B4EFDDE00C464A8 /* PositionManager.m */; };
 		BB4B0E191B4DBD2800FBDA29 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4B0E181B4DBD2800FBDA29 /* TabBarViewController.m */; };
 		BB4B0E1C1B4DBECF00FBDA29 /* PlacesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4B0E1B1B4DBECF00FBDA29 /* PlacesTableViewController.m */; };
 		BB4B0E1F1B4E378E00FBDA29 /* PlacesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB4B0E1E1B4E378E00FBDA29 /* PlacesTableViewCell.m */; };
@@ -54,6 +57,11 @@
 		75A5D1051B4134BC0066E749 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		75A5D1071B41727C0066E749 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		75A5D1081B41727C0066E749 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		BB2C8D751B4EFA8300C464A8 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		BB2C8D761B4EFA8300C464A8 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		BB2C8D781B4EFAED00C464A8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BB2C8D7A1B4EFDDE00C464A8 /* PositionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionManager.h; sourceTree = "<group>"; };
+		BB2C8D7B1B4EFDDE00C464A8 /* PositionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionManager.m; sourceTree = "<group>"; };
 		BB4B0E171B4DBD2800FBDA29 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
 		BB4B0E181B4DBD2800FBDA29 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		BB4B0E1A1B4DBECF00FBDA29 /* PlacesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacesTableViewController.h; sourceTree = "<group>"; };
@@ -68,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB2C8D791B4EFAED00C464A8 /* MapKit.framework in Frameworks */,
 				973D6D03DD7877088A5CA0BB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +94,7 @@
 		300A6DAAD1B746172D159D9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB2C8D781B4EFAED00C464A8 /* MapKit.framework */,
 				F89653C468432220E77E1F85 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -167,6 +177,8 @@
 				75A5D1051B4134BC0066E749 /* Profile.m */,
 				75A5D1071B41727C0066E749 /* Settings.h */,
 				75A5D1081B41727C0066E749 /* Settings.m */,
+				BB2C8D7A1B4EFDDE00C464A8 /* PositionManager.h */,
+				BB2C8D7B1B4EFDDE00C464A8 /* PositionManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -191,6 +203,8 @@
 				BB4B0E1B1B4DBECF00FBDA29 /* PlacesTableViewController.m */,
 				BB4B0E1D1B4E378E00FBDA29 /* PlacesTableViewCell.h */,
 				BB4B0E1E1B4E378E00FBDA29 /* PlacesTableViewCell.m */,
+				BB2C8D751B4EFA8300C464A8 /* DetailsViewController.h */,
+				BB2C8D761B4EFA8300C464A8 /* DetailsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -331,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A5D0DE1B4130B50066E749 /* AppDelegate.m in Sources */,
+				BB2C8D771B4EFA8300C464A8 /* DetailsViewController.m in Sources */,
 				75A5D1061B4134BC0066E749 /* Profile.m in Sources */,
 				BB4B0E191B4DBD2800FBDA29 /* TabBarViewController.m in Sources */,
 				75A5D1091B41727C0066E749 /* Settings.m in Sources */,
@@ -338,6 +353,7 @@
 				75A5D0DB1B4130B50066E749 /* main.m in Sources */,
 				BB4B0E1C1B4DBECF00FBDA29 /* PlacesTableViewController.m in Sources */,
 				75A5D0E41B4130B50066E749 /* ViewController.m in Sources */,
+				BB2C8D7C1B4EFDDE00C464A8 /* PositionManager.m in Sources */,
 				75A5D0E11B4130B50066E749 /* Places.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

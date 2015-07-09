@@ -371,7 +371,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y80-l2-osZ">
-                                            <rect key="frame" x="40" y="0.0" width="520" height="71.5"/>
+                                            <rect key="frame" x="40" y="0.0" width="520" height="72"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -404,10 +404,10 @@
             </objects>
             <point key="canvasLocation" x="1928" y="1124"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="MfM-Ie-rXk">
             <objects>
-                <viewController id="XTM-jx-eMz" sceneMemberID="viewController">
+                <viewController id="XTM-jx-eMz" customClass="DetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mEx-me-Ntu"/>
                         <viewControllerLayoutGuide type="bottom" id="h4j-RT-zNy"/>
@@ -415,8 +415,24 @@
                     <view key="view" contentMode="scaleToFill" id="GE0-rR-Nhc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="B8i-rq-CER">
+                                <rect key="frame" x="0.0" y="301" width="600" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Am4-hA-Ze5"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h4j-RT-zNy" firstAttribute="top" secondItem="B8i-rq-CER" secondAttribute="bottom" id="5pO-71-o3Y"/>
+                            <constraint firstItem="B8i-rq-CER" firstAttribute="leading" secondItem="GE0-rR-Nhc" secondAttribute="leadingMargin" constant="-16" id="Cj3-Z6-tjK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B8i-rq-CER" secondAttribute="trailing" constant="-16" id="n2b-Pt-RPI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="B8i-rq-CER" id="GMg-GC-Nzg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dsq-VW-Lpm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

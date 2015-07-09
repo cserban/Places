@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PositionManager.h"
 
-@interface PlacesTableViewController : UITableViewController
+@interface PlacesTableViewController : UITableViewController <PositionProtocol>
 
 @end
