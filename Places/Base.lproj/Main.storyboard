@@ -337,17 +337,56 @@
         <scene sceneID="tSM-bJ-9Hq">
             <objects>
                 <tableViewController id="S6t-IR-Nkr" customClass="PlacesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="13z-xX-b3H">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="13z-xX-b3H">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="507"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="scrollIndicatorInsets" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="R6W-eF-Kre">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="oddCell" rowHeight="72" id="R6W-eF-Kre" customClass="PlacesTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R6W-eF-Kre" id="83B-AX-vUf">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yf-LG-SHM">
+                                            <rect key="frame" x="41" y="0.0" width="519" height="72"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3yf-LG-SHM" secondAttribute="trailing" constant="32" id="OFq-aB-6Qi"/>
+                                        <constraint firstItem="3yf-LG-SHM" firstAttribute="leading" secondItem="83B-AX-vUf" secondAttribute="leadingMargin" constant="33" id="Zcb-a4-haJ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="3yf-LG-SHM" secondAttribute="bottom" constant="-8" id="eRe-Eu-LuM"/>
+                                        <constraint firstItem="3yf-LG-SHM" firstAttribute="top" secondItem="83B-AX-vUf" secondAttribute="topMargin" constant="-8" id="khL-dR-HoM"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="3yf-LG-SHM" id="pVE-CW-of3"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="evenCell" rowHeight="72" id="Gvh-EJ-o6y" customClass="PlacesTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gvh-EJ-o6y" id="Wsy-Ay-dao">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y80-l2-osZ">
+                                            <rect key="frame" x="40" y="0.0" width="520" height="71.5"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="y80-l2-osZ" secondAttribute="trailing" constant="32" id="PjB-gf-CjH"/>
+                                        <constraint firstItem="y80-l2-osZ" firstAttribute="top" secondItem="Wsy-Ay-dao" secondAttribute="topMargin" constant="-8" id="SPy-cq-hIX"/>
+                                        <constraint firstItem="y80-l2-osZ" firstAttribute="leading" secondItem="Wsy-Ay-dao" secondAttribute="leadingMargin" constant="32" id="cZe-xe-5nc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="y80-l2-osZ" secondAttribute="bottom" constant="-8" id="g3r-pc-4ya"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="y80-l2-osZ" id="YJW-I6-qPL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

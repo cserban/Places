@@ -8,10 +8,12 @@
 
 #import "PlacesTableViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "PlacesTableViewCell.h"
 
 @interface PlacesTableViewController ()
 @property (atomic,strong) NSMutableDictionary *resultDictionary;
 @property (atomic,strong) GMSPlacesClient *placesClient;
+@property (atomic,strong) NSMutableArray *keys;
 @end
 
 @implementation PlacesTableViewController
@@ -20,10 +22,17 @@
     [super viewDidLoad];
     self.resultDictionary = [[NSMutableDictionary alloc] init];
     _placesClient = [[ GMSPlacesClient alloc] init];
+    _keys = [[NSMutableArray alloc] init];
+    for (char a = 'a'; a <= 'z'; a++)
+    {
+       [_keys addObject:[NSString stringWithFormat:@"%c", a]];
+    }
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    
     for (char a = 'a'; a <= 'z'; a++)
     {
         [self placeAutocomplete:[NSString stringWithFormat:@"%c", a]];
@@ -60,30 +69,31 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return [[self.resultDictionary allKeys] count];
+    return [_keys count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[self.resultDictionary objectForKey:[[self.resultDictionary allKeys] objectAtIndex:section]] count];
+    return [[self.resultDictionary objectForKey:[_keys objectAtIndex:section]] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
-    NSArray *forKey = [self.resultDictionary objectForKey:[[self.resultDictionary allKeys] objectAtIndex:indexPath.section]];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifierOdd = @"oddCell";
+        static NSString *CellIdentifierEven = @"evenCell";
+    NSArray *forKey = [self.resultDictionary objectForKey:[_keys objectAtIndex:indexPath.section]];
+    PlacesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:(indexPath.row % 2 == 0) ? CellIdentifierOdd : CellIdentifierEven];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[PlacesTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:(indexPath.row % 2 == 0) ? CellIdentifierOdd : CellIdentifierEven];
     }
     GMSAutocompletePrediction *object = [forKey objectAtIndex:indexPath.row];
-    cell.textLabel.text = object.attributedFullText.string;
+    cell.label.text = object.attributedFullText.string;
     return cell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [[self.resultDictionary allKeys] objectAtIndex:section];
+    return [_keys objectAtIndex:section];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,7 +113,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *forKey = [self.resultDictionary objectForKey:[[self.resultDictionary allKeys] objectAtIndex:indexPath.section]];
+    NSArray *forKey = [self.resultDictionary objectForKey:[_keys objectAtIndex:indexPath.section]];
     GMSAutocompletePrediction *object = [forKey objectAtIndex:indexPath.row];
     [_placesClient lookUpPlaceID:object.placeID callback:^(GMSPlace *place, NSError *error) {
         if (error != nil) {
